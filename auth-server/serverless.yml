@@ -72,13 +72,13 @@ functions:
           path: api/get-auth-url
           method: get
   getAccessToken:
-    handler: handler.getAuthURL
+    handler: handler.getAccessToken
     events:
       - http:
           path: api/token/{code}
           method: get
-  getCalendarEvent:
-    handler: handler.getAuthURL
+  getCalendarEvents:
+    handler: handler.getCalendarEvents
     events:
       - http:
           path: api/get-events/{access-token}

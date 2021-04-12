@@ -12,10 +12,14 @@ getAccessToken.onclick = function () {
   }
   const getTokenRequest = getToken + "/" + code;
   fetch(getTokenRequest)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      accessTokenElement.innerText = JSON.stringify(json);
-    });
+    .then(
+      function (response) {
+        return response.json();
+      }
+    )
+    .then(
+      function (json) {
+        accessTokenElement.innerText = JSON.stringify(json);
+      }
+    );
 };

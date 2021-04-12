@@ -11,9 +11,11 @@ getCodeElement.onclick = function () {
   fetch(getAuthURL)
 
     // Then return a response in JSON
-    .then(function (response) {
-      return response.json();
-    })
+    .then(
+      function (response) {
+        return response.json();
+      }
+    )
 
     // Display the result in JSON format
     .then(
