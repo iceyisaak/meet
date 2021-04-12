@@ -23,3 +23,4 @@ getAccessToken.onclick = function () {
       }
     );
 };
+
