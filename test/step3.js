@@ -1,7 +1,7 @@
 const getEvents = document.getElementById("getEvents");
 const events = document.getElementById("events");
-const getCalendarEvents = "https://lh25xfzg7g.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
-const accessTokenElement = document.getElementById("accessToken");
+const getCalendarEvents = " https://3m5d2he177.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
+// const accessTokenElement = document.getElementById("accessToken");
 
 // Listen for a Click
 getEvents.onclick = function () {

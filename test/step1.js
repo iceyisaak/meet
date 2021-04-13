@@ -2,7 +2,7 @@
 const getCodeElement = document.getElementById("getCode");
 const resultElement = document.getElementById("result");
 const resultLink = document.getElementById("authURL");
-const getAuthURL = "https://lh25xfzg7g.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
+const getAuthURL = "https://3m5d2he177.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
 
 // Once getCode Element is Clicked
 getCodeElement.onclick = function () {

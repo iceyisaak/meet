@@ -1,7 +1,7 @@
 const codeValue = document.getElementById("code");
 const getAccessToken = document.getElementById("getToken");
 const accessTokenElement = document.getElementById("accessToken");
-const getToken = "https://lh25xfzg7g.execute-api.eu-central-1.amazonaws.com/dev/api/token";
+const getToken = "https://3m5d2he177.execute-api.eu-central-1.amazonaws.com/dev/api/token";
 
 getAccessToken.onclick = function () {
   let code = codeValue.value;
