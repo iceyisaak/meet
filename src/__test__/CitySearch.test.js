@@ -99,7 +99,7 @@ describe(
         for (
           let i = 0;
           i < suggestions.length;
-          i + 1
+          i += 1
         ) {
           expect(
             CitySearchWrapper
