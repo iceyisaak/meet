@@ -8,12 +8,22 @@ describe(
   '<CitySearch/> Component',
   () => {
 
+    let locations;
+    let CitySearchWrapper;
+
+    beforeAll(
+      () => {
+        locations = extractLocations(mockData);
+        CitySearchWrapper = shallow(
+          <CitySearch />
+        );
+      }
+    );
+
     test(
       'renders test input',
       () => {
-        const CitySearchWrapper = shallow(
-          <CitySearch />
-        );
+
         expect(
           CitySearchWrapper
             .find('.city')
@@ -25,9 +35,7 @@ describe(
     test(
       'renders a list of suggestion',
       () => {
-        const CitySearchWrapper = shallow(
-          <CitySearch />
-        );
+
         expect(
           CitySearchWrapper
             .find('.suggestions')
@@ -39,9 +47,7 @@ describe(
     test(
       'renders text input correctly',
       () => {
-        const CitySearchWrapper = shallow(
-          <CitySearch />
-        );
+
         const query = CitySearchWrapper.state('query');
         expect(
           CitySearchWrapper
@@ -55,9 +61,7 @@ describe(
     test(
       'change state when text input changes',
       () => {
-        const CitySearchWrapper = shallow(
-          <CitySearch />
-        );
+
         CitySearchWrapper.setState({
           query: "Munich"
         });
@@ -84,9 +88,7 @@ describe(
       'render a list of suggestions correctly',
       () => {
         const locations = extractLocations(mockData);
-        const CitySearchWrapper = shallow(
-          <CitySearch />
-        );
+
         CitySearchWrapper.setState({
           suggestions: locations
         });
@@ -111,6 +113,44 @@ describe(
         }
       }
     );
+
+    test(
+      'suggestion list match the query when changed',
+      () => {
+        CitySearchWrapper
+          .setState({
+            query: "",
+            suggestions: []
+          });
+        CitySearchWrapper
+          .find(".city")
+          .simulate(
+            "change",
+            {
+              target: {
+                value: "Berlin"
+              }
+            }
+          );
+
+        const query = CitySearchWrapper.state("query");
+        const filteredLocations = locations.filter(
+          (location) => {
+            return location
+              .toUpperCase()
+              .indexOf(
+                query.toUpperCase()
+              ) > -1;
+          }
+        );
+        expect(
+          CitySearchWrapper.state("suggestions")
+        )
+          .toEqual(filteredLocations);
+      }
+    );
+
+
 
   }
 );
