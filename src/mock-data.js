@@ -79,7 +79,6 @@ const mockData = [
     "eventType": "default"
   }
 
-
 ];
 
 
