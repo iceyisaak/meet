@@ -9,24 +9,20 @@ describe(
   () => {
 
     let EventWrapper;
-    let summary;
-    let eventStartTime;
-    let timeZone;
-    let location;
+    const eventDetail = mockData[0];
 
     beforeAll(
       () => {
         EventWrapper = shallow(
           <Event
-            summary={summary}
-            eventStartTime={eventStartTime}
-            timeZone={timeZone}
-            location={location}
+            event={eventDetail}
           />
         );
       }
     );
 
+
+    // Scenario 1: An Event is collapsed by default
     test(
       'hide event description by default',
       () => {
@@ -37,11 +33,37 @@ describe(
           .toBe(false);
       }
     );
+
+    // Scenario 2: User can expand an event to see its details
+    test(
+      'show event description upon a button click',
+      () => {
+
+        EventWrapper.find('button.button__hide-details').simulate('click');
+
+        expect(
+          EventWrapper.state('showDetails')
+        )
+          .toBe(true);
+      }
+    );;
+
+    // Scenario 3: User can collapse an event to hide its details
+    test(
+      'hide event description upon a button click',
+      () => {
+
+        EventWrapper.find('button.button__show-details').simulate('click');
+
+        expect(
+          EventWrapper.state('showDetails')
+
+        )
+          .toBe(false);
+      }
+    );
   }
 );;
-// Scenario 1: An Event is collapsed by default
 
 
-// Scenario 2: User can expand an event to see its details
 
-// Scenario 3: User can collapse an event to hide its details
