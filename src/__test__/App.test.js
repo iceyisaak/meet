@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-import Event from '../Event';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
+import NumberOfEvents from '../NumberOfEvents';
 
 describe(
   '<App/> component',
@@ -36,6 +36,17 @@ describe(
         expect(
           AppWrapper
             .find(CitySearch)
+        )
+          .toHaveLength(1);
+      }
+    );
+
+    test(
+      'render number of events',
+      () => {
+        expect(
+          AppWrapper
+            .find(NumberOfEvents)
         )
           .toHaveLength(1);
       }
