@@ -7,9 +7,9 @@ class Event extends Component {
   };
 
   handleButtonClicked = () => {
-    this.setState({
-      showDetails: true
-    });
+    this.setState(state => ({
+      showDetails: !state.showDetails
+    }));
   };
 
 
@@ -35,7 +35,7 @@ class Event extends Component {
               "button__show-details" :
               "button__hide-details"
           }
-          onClick={() => !this.handleButtonClicked()}
+          onClick={() => this.handleButtonClicked()}
         >
           {
             this.state.showDetails ?
