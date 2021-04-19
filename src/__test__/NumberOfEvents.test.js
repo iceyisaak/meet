@@ -61,5 +61,28 @@ describe(
       }
     );
 
+
+    test(
+      'check change of nuberEventsShown',
+      () => {
+        const eventCount = {
+          target: {
+            value: 2
+          }
+        };
+        const value = eventCount.target.value;
+        NumberOfEventsWrapper
+          .find('.number')
+          .simulate(
+            'change',
+            eventCount
+          );
+        expect(
+          NumberOfEventsWrapper.state("numberOfEventsShown")
+        )
+          .toBe(value);
+      }
+    );
+
   }
 );
