@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
 
   state = {
-    numberOfEvents: "",
-    defaultNumberOfEvents: 32,
-    numberOfEventsShown: ""
+    numberOfEvents: 0,
+    numberOfEventsShown: 32
   };
 
   handleOnChange = (e) => {
@@ -16,11 +15,6 @@ class NumberOfEvents extends Component {
       numberOfEventsShown: value
     });
 
-    if (this.state.numberOfEvents === "") {
-      this.setState({
-        numberOfEventsShown: this.state.defaultNumberOfEvents
-      });
-    }
   };
 
 
@@ -33,6 +27,7 @@ class NumberOfEvents extends Component {
           type="number"
           className="number"
           onChange={this.handleOnChange}
+          value={this.numberOfEvents}
         />
       </div>
     );

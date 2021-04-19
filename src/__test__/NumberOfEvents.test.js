@@ -39,5 +39,27 @@ describe(
     );
 
     // Scenario 2: Number of Events Shown can be set by users
+    test(
+      'render Number of Events set by users',
+      () => {
+        NumberOfEventsWrapper
+          .find('.number')
+          .simulate(
+            'change',
+            {
+              target: {
+                value: 25
+              }
+            }
+          );
+
+        const value = NumberOfEventsWrapper.state('numberOfEvents');
+        expect(
+          NumberOfEventsWrapper.state('numberOfEventsShown')
+        )
+          .toEqual(value);
+      }
+    );
+
   }
 );
