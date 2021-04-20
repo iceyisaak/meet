@@ -6,6 +6,8 @@ class CitySearch extends Component {
     suggestions: []
   };
 
+
+
   handleInputChanged = (event) => {
     const value = event.target.value;
     const suggestions = this.props.locations.filter(
