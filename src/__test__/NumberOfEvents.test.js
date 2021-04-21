@@ -63,7 +63,7 @@ describe(
 
 
     test(
-      'check change of nuberEventsShown',
+      'check change of numberEventsShown',
       () => {
         const eventCount = {
           target: {
@@ -77,6 +77,10 @@ describe(
             'change',
             eventCount
           );
+        expect(
+          NumberOfEventsWrapper.state("numberOfEvents")
+        )
+          .toBe(value);
         expect(
           NumberOfEventsWrapper.state("numberOfEventsShown")
         )
