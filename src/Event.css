@@ -1,0 +1,7 @@
+.event__description--hide {
+  display: none;
+}
+
+.event__description--show {
+  display: block;
+}
