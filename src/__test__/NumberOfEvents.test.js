@@ -53,7 +53,7 @@ describe(
             }
           );
 
-        const value = NumberOfEventsWrapper.state('numberOfEvents');
+        const value = NumberOfEventsWrapper.state('eventCount');
         expect(
           NumberOfEventsWrapper.state('eventShown')
         )

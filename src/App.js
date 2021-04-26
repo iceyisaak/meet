@@ -17,30 +17,30 @@ class App extends Component {
 
   updateEvents = (location, eventCount) => {
 
-    let locationEvents;
+    let eventLocations;
 
     getEvents()
       .then(
         (events) => {
-          locationEvents = events;
+          eventLocations = events;
           if (location === "all") {
-            locationEvents = events;
+            eventLocations = events;
           }
           if (location !== "all") {
-            locationEvents = events.filter(
+            eventLocations = events.filter(
               (event) => (
                 event.location === location
               )
             );
           }
           if (eventCount > 0) {
-            locationEvents = events.slice(0, eventCount);
+            eventLocations = events.slice(0, eventCount);
           }
           if (eventCount === 0 || eventCount === "") {
-            locationEvents = events;
+            eventLocations = events;
           }
           this.setState({
-            events: locationEvents,
+            events: eventLocations,
             eventCount
           });
         }
