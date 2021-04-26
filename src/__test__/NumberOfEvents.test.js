@@ -32,7 +32,7 @@ describe(
       'render number of events as 32 by default',
       () => {
         expect(
-          NumberOfEventsWrapper.state('numberOfEventsShown')
+          NumberOfEventsWrapper.state('eventShown')
         )
           .toEqual(32);
       }
@@ -55,7 +55,7 @@ describe(
 
         const value = NumberOfEventsWrapper.state('numberOfEvents');
         expect(
-          NumberOfEventsWrapper.state('numberOfEventsShown')
+          NumberOfEventsWrapper.state('eventShown')
         )
           .toEqual(value);
       }
@@ -63,7 +63,7 @@ describe(
 
 
     test(
-      'check change of numberEventsShown',
+      'check change of eventsShown',
       () => {
         const eventCount = {
           target: {
@@ -78,11 +78,11 @@ describe(
             eventCount
           );
         expect(
-          NumberOfEventsWrapper.state("numberOfEvents")
+          NumberOfEventsWrapper.state("eventCount")
         )
           .toBe(value);
         expect(
-          NumberOfEventsWrapper.state("numberOfEventsShown")
+          NumberOfEventsWrapper.state("eventsShown")
         )
           .toBe(value);
       }
