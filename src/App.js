@@ -6,6 +6,7 @@ import { getEvents, extractLocations } from './api';
 
 import './App.css';
 import './nprogress.css';
+import 'tailwindcss/tailwind.css';
 
 class App extends Component {
 

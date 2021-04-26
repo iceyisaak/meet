@@ -12,7 +12,7 @@ describe(
     beforeAll(
       () => {
         NumberOfEventsWrapper = shallow(
-          <NumberOfEvents />
+          <NumberOfEvents updateEvents={() => { }} />
         );
       }
     );
@@ -82,7 +82,7 @@ describe(
         )
           .toBe(value);
         expect(
-          NumberOfEventsWrapper.state("eventsShown")
+          NumberOfEventsWrapper.state("eventShown")
         )
           .toBe(value);
       }
