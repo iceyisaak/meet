@@ -152,5 +152,19 @@ describe(
       }
     );
 
+
+    // test(
+    //   'check if mockData works',
+    //   () => {
+    //     let AppWrapper = mount(<App />);
+    //     AppWrapper.update();
+    //     expect(
+    //       AppWrapper.find('.event')
+    //     )
+    //       .toHaveLength(mockData.length);
+    //     AppWrapper.unmount();
+    //   }
+    // );
+
   }
 );
