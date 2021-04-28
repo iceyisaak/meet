@@ -19,7 +19,7 @@ class Event extends Component {
     const { event } = this.props;
 
     return (
-      <div className="Event">
+      <div className="event">
         <h1>{event.summary}</h1>
         <p>{event.start.dateTime} ({event.timeZone})</p>
         <p>@{event.summary} | {event.location}</p>
