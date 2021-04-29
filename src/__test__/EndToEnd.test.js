@@ -6,11 +6,12 @@ describe('show/hide an event details',
     let browser;
     let page;
 
+    jest.setTimeout(30000);
+
     beforeAll(async () => {
-      jest.setTimeout(300000);
       browser = await puppeteer.launch({
         headless: false,
-        slowMo: 2500,
+        slowMo: 250,
         ignoreDefaultArgs: ['--disable-extensions']  // ignore default settings that causes timeout error
       });
       page = await browser.newPage();
@@ -38,8 +39,8 @@ describe('show/hide an event details',
 
     test('User can collapse an event to hide its details',
       async () => {
-        const eventDetails = await page.$('.event .event__description--show');
         await page.click('.event .button__show-details');
+        const eventDetails = await page.$('.event .event__description--show');
         expect(eventDetails).toBeNull();
       }
     );
