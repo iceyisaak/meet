@@ -31,7 +31,9 @@ defineFeature(
           () => {
             AppWrapper.update();
             expect(
-              AppWrapper.find('.event').hostNodes()
+              AppWrapper
+                .find('.event')
+                .hostNodes()
             )
               .toHaveLength(mockData.length);
           });
