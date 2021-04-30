@@ -19,8 +19,8 @@ class Event extends Component {
     const { event } = this.props;
 
     return (
-      <div className="event">
-        <h1>{event.summary}</h1>
+      <div className="event pb-1">
+        <h1 className="text-5xl my-2">{event.summary}</h1>
         <p>{event.start.dateTime} ({event.timeZone})</p>
         <p>@{event.summary} | {event.location}</p>
         <p className={
@@ -32,9 +32,17 @@ class Event extends Component {
         </p>
         <button
           className={
-            this.state.showDetails ?
+            `
+            bg-blue-700
+            text-white  
+              my-4 
+              px-4
+              py-2 
+              rounded-md 
+            ${this.state.showDetails ?
               "button__show-details" :
               "button__hide-details"
+            }`
           }
           onClick={() => this.handleButtonClicked()}
         >

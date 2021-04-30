@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NumberOfEvents.css';
 
 class NumberOfEvents extends Component {
 
@@ -34,8 +35,8 @@ class NumberOfEvents extends Component {
   render() {
 
     return (
-      <div className="NumberOfEvents">
-        <label>Number of Events</label>
+      <div className="NumberOfEvents my-5">
+        <h3>Number of Results:</h3>
         <input
           type="number"
           name="numberOfEvents"
