@@ -3,6 +3,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import { getEvents, extractLocations } from './api';
+import { WarningAlert } from './Alert';
 
 import './App.css';
 import './nprogress.css';
@@ -13,7 +14,8 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    numberOfEvents: 32
+    numberOfEvents: 32,
+    warningText: ''
   };
 
   updateEvents = (location, eventCount) => {
@@ -50,6 +52,18 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
+
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: 'No Internet Connection'
+      });
+    }
+    if (navigator.onLine) {
+      this.setState({
+        warningText: ''
+      });
+    }
+
     getEvents()
       .then(
         (events) => {
@@ -63,6 +77,9 @@ class App extends Component {
 
         }
       );
+
+
+
   }
 
   componentWillUnmount() {
@@ -81,7 +98,14 @@ class App extends Component {
         <NumberOfEvents
           updateEvents={this.updateEvents}
         />
-        <EventList events={this.state.events} />
+
+        {
+          !navigator.onLine ?
+            <WarningAlert text={this.state.warningText} />
+            :
+            < EventList events={this.state.events} />
+        }
+
       </div>
     );
   }
