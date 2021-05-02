@@ -36,13 +36,15 @@ class CitySearch extends Component {
   };
 
   handleItemClicked = (suggestion) => {
-
+    alert('11111');
     this.setState({
       query: suggestion,
       showSuggestions: false
     });
+    alert('22222');
 
     this.props.updateEvents(suggestion);
+    alert('33333');
 
   };
 
