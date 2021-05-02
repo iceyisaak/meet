@@ -36,15 +36,12 @@ class CitySearch extends Component {
   };
 
   handleItemClicked = (suggestion) => {
-    alert('11111');
     this.setState({
       query: suggestion,
       showSuggestions: false
     });
-    alert('22222');
 
     this.props.updateEvents(suggestion);
-    alert('33333');
 
   };
 
@@ -64,11 +61,7 @@ class CitySearch extends Component {
               showSuggestions: true
             });
           }}
-          onBlur={() => {
-            this.setState({
-              showSuggestions: false
-            });
-          }}
+
         />
         <InfoAlert
           text={this.state.infoText}
