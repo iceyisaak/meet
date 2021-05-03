@@ -4,6 +4,7 @@ import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import { getEvents, extractLocations } from './api';
 import { WarningAlert } from './Alert';
+import EventGenre from './EventGenre';
 import {
   CartesianGrid,
   ResponsiveContainer,
@@ -135,47 +136,51 @@ class App extends Component {
 
         <h4>Events in each city</h4>
 
-        <ResponsiveContainer
-          height={400}
-        >
+        <div className="data-vis-wrapper">
 
-          <ScatterChart
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20
-            }}
+          <EventGenre
+            events={this.state.events}
+          />
+          <ResponsiveContainer
+            height={400}
           >
-
-            <CartesianGrid />
-
-            <XAxis
-              type='category'
-              dataKey='city'
-              name='city'
-            />
-
-            <YAxis
-              type='number'
-              dataKey='number'
-              name='number of events'
-            />
-
-            <Tooltip
-              cursor={{
-                strokeDasharray: '3 3'
+            <ScatterChart
+              margin={{
+                top: 20,
+                right: 20,
+                bottom: 20,
+                left: 20
               }}
-            />
+            >
 
-            <Scatter
-              data={this.getData()}
-              fill='#8884d8'
-            />
+              <CartesianGrid />
 
-          </ScatterChart >
-        </ResponsiveContainer>
+              <XAxis
+                type='category'
+                dataKey='city'
+                name='city'
+              />
 
+              <YAxis
+                type='number'
+                dataKey='number'
+                name='number of events'
+              />
+
+              <Tooltip
+                cursor={{
+                  strokeDasharray: '3 3'
+                }}
+              />
+
+              <Scatter
+                data={this.getData()}
+                fill='#8884d8'
+              />
+
+            </ScatterChart >
+          </ResponsiveContainer>
+        </div>
 
         {
           !navigator.onLine ?
