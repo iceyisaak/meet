@@ -4,6 +4,15 @@ import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import { getEvents, extractLocations } from './api';
 import { WarningAlert } from './Alert';
+import {
+  CartesianGrid,
+  ResponsiveContainer,
+  Scatter,
+  ScatterChart,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts';
 
 import './App.css';
 import './nprogress.css';
@@ -50,6 +59,29 @@ class App extends Component {
       );
   };
 
+  getData = () => {
+
+    const {
+      locations,
+      events
+    } = this.state;
+
+    const data = locations.map(
+      (location) => {
+
+        const number = events.filter(
+          (event) => event.location === location
+        ).length;
+
+        const city = location.split(' ').shift();
+        return { city, number };
+
+      }
+    );
+
+    return data;
+  };
+
   componentDidMount() {
     this.mounted = true;
 
@@ -88,6 +120,8 @@ class App extends Component {
 
   render() {
 
+
+
     return (
       <div className="App" >
         <h1 className="text-5xl my-4">Meet</h1>
@@ -99,6 +133,50 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
 
+        <h4>Events in each city</h4>
+
+        <ResponsiveContainer
+          height={400}
+        >
+
+          <ScatterChart
+            margin={{
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20
+            }}
+          >
+
+            <CartesianGrid />
+
+            <XAxis
+              type='category'
+              dataKey='city'
+              name='city'
+            />
+
+            <YAxis
+              type='number'
+              dataKey='number'
+              name='number of events'
+            />
+
+            <Tooltip
+              cursor={{
+                strokeDasharray: '3 3'
+              }}
+            />
+
+            <Scatter
+              data={this.getData()}
+              fill='#8884d8'
+            />
+
+          </ScatterChart >
+        </ResponsiveContainer>
+
+
         {
           !navigator.onLine ?
             <WarningAlert text={this.state.warningText} />
@@ -106,7 +184,7 @@ class App extends Component {
             < EventList events={this.state.events} />
         }
 
-      </div>
+      </div >
     );
   }
 };
