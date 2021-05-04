@@ -2,34 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
   PieChart,
   Pie,
-  Cell,
+  // Cell,
   ResponsiveContainer
 } from "recharts";
-
-
-const getData = (events) => {
-
-  const genres = [
-    'React',
-    'Javascript',
-    'Node',
-    'jQuery',
-    'AngularJS'
-  ];
-
-  const data = genres.map(
-    (genre) => {
-      const value = events.filter(
-        ({ summary }) => summary.split(' ').includes(genre)
-      ).length;
-
-      return { name: genre, value };
-    }
-  );
-
-  return data;
-};
-
 
 
 const EventGenre = ({
@@ -41,11 +16,39 @@ const EventGenre = ({
   useEffect(
     () => {
       setData(
-        () => getData()
+        () => getData(events)
       );
 
     }, [events]
   );
+
+
+  const getData = (events) => {
+
+    const genres = [
+      'React',
+      'Javascript',
+      'Node',
+      'jQuery',
+      'AngularJS'
+    ];
+
+    const data = genres.map(
+
+      (genre) => {
+
+        const value = events.filter(
+
+          ({ summary }) => summary.split(' ').includes(genre)
+        ).length;
+
+        return { name: genre, value };
+
+      }
+    );
+
+    return data;
+  };
 
 
 
