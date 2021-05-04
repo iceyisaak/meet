@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
   PieChart,
   Pie,
-  // Cell,
-  ResponsiveContainer
+  Cell,
+  ResponsiveContainer,
+  Legend
 } from "recharts";
 
 
@@ -50,7 +51,13 @@ const EventGenre = ({
     return data;
   };
 
-
+  const colors = [
+    '#ee5454',
+    '#5f74f0',
+    '#69eb13',
+    '#13ebeb',
+    '#eb13c7'
+  ];
 
   return (
 
@@ -74,6 +81,22 @@ const EventGenre = ({
             percent
           }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
+          {
+            data.map(
+              (entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={colors[index]}
+                  name={entry.name}
+                />
+              )
+            )
+          }
+          <Legend
+            verticalAlign='top'
+            layout='horizontal'
+            align='center'
+          />
         </Pie>
       </PieChart>
     </ResponsiveContainer >
