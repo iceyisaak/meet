@@ -134,7 +134,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
 
-        <h4>Events in each city</h4>
+        <h4 className="text-3xl my-4">Events in each city</h4>
 
         <div className="data-vis-wrapper">
 
