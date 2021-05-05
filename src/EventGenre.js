@@ -92,12 +92,12 @@ const EventGenre = ({
               )
             )
           }
-          <Legend
-            verticalAlign='top'
-            layout='horizontal'
-            align='center'
-          />
         </Pie>
+        <Legend
+          verticalAlign='top'
+          layout='horizontal'
+          align='center'
+        />
       </PieChart>
     </ResponsiveContainer >
   );
